@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="नवीन भगवान दास प्रोविजन स्टोर — 1960 से आपकी रोज़मर्रा की ज़रूरतों का भरोसेमंद साथी। किराना, खुला तेल, खाने वाले बीज और उचित दाम।">
@@ -189,16 +192,41 @@ footer a{text-decoration:underline}
 .owner-logout-card{padding:14px!important}
 @media(max-width:640px){.owner-page-header{align-items:flex-start;gap:14px;flex-direction:column}.owner-header-actions{width:100%;justify-content:space-between}.password-settings-icon{min-width:48px}}
 
+
+/* Customer shopping experience */
+.shop-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0}
+.shop-toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:22px 0}
+.shop-toolbar input,.shop-toolbar select{max-width:100%;width:auto;min-width:190px;background:var(--paper);color:var(--ink);border-color:var(--line)}
+.shop-catalog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.shop-product{display:flex;flex-direction:column;gap:10px;padding:18px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);min-width:0}
+.shop-product .product-emoji{height:105px;border-radius:15px;display:grid;place-items:center;font-size:3.6rem;background:linear-gradient(135deg,#dcfce7,#bbf7d0)}
+.shop-product h3{font-size:1.02rem;line-height:1.35}
+.shop-product .unit{font-size:.82rem;color:var(--muted)}
+.shop-price{font-size:1.2rem;font-weight:950;color:var(--brand)}
+.shop-product-actions{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:auto}
+.shop-product-actions button,.icon-action{border:1px solid var(--line);border-radius:11px;padding:10px;background:var(--bg);color:var(--ink);font-weight:800;cursor:pointer}
+.shop-product-actions .add-cart{background:linear-gradient(135deg,#14532d,#22a06b);color:#fff;border:0}
+.shop-product-actions .wish.active{background:#ffe4e6;color:#be123c}
+.shop-panel-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:start;margin-top:26px}
+.shop-panel{padding:22px;border:1px solid var(--line);border-radius:22px;background:var(--paper);box-shadow:var(--shadow);min-width:0}
+.shop-panel h3{margin-bottom:12px}
+.shop-line{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.shop-line:last-child{border-bottom:0}
+.shop-line small{display:block;color:var(--muted)}
+.qty-controls{display:flex;align-items:center;gap:8px;margin-top:7px}
+.qty-controls button{width:30px;height:30px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);cursor:pointer;font-weight:900}
+.shop-total{display:flex;justify-content:space-between;gap:10px;font-size:1.1rem;font-weight:950;padding:15px 0}
+.shop-empty{color:var(--muted);padding:14px 0}
+.shop-notice{padding:12px 14px;background:#fef3c7;color:#854d0e;border:1px solid #fde68a;border-radius:13px;font-size:.88rem;margin:16px 0}
+.checkout-form{display:grid;gap:12px;margin-top:14px}
+.checkout-form input,.checkout-form textarea,.checkout-form select{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.checkout-form label{display:grid;gap:5px}
+.order-success{padding:14px;border-radius:12px;background:#dcfce7;color:#14532d;margin-top:12px}
+@media(max-width:980px){.shop-catalog{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.shop-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}.shop-panel-grid{grid-template-columns:1fr}.shop-product{padding:12px}.shop-product .product-emoji{height:85px}.shop-toolbar input,.shop-toolbar select{width:100%;min-width:0}}
+@media(max-width:390px){.shop-catalog{grid-template-columns:1fr}}
+
 </style>
-
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Naveen Store">
-<meta name="mobile-web-app-capable" content="yes">
-
 </head>
 <body>
 <div id="languageScreen" class="language-screen" role="dialog" aria-modal="true" aria-labelledby="languageTitle">
@@ -228,8 +256,8 @@ footer a{text-decoration:underline}
 <header>
   <div class="container nav">
     <a class="logo" href="#home"><span class="logo-mark">🛍️</span><span>नवीन भगवान दास प्रोविजन स्टोर<small>1960 से भरोसे का नाम</small></span></a>
-    <nav id="mainNav"><a href="#home">होम</a><a href="#products">हमारे उत्पाद</a><a href="#about">हमारे बारे में</a><a href="#gallery">गैलरी</a><a href="#contact">संपर्क</a></nav>
-    <div class="nav-actions"><button class="theme-btn" id="themeToggle" aria-label="थीम बदलें">🌙</button><a class="btn btn-primary" href="#contact">संपर्क करें</a><button class="menu-btn" id="menuToggle" aria-label="मेन्यू">☰</button></div>
+    <nav id="mainNav"><a href="#home">होम</a><a href="#products">श्रेणियाँ</a><a href="#shop">ऑनलाइन खरीदें</a><a href="#about">हमारे बारे में</a><a href="#gallery">गैलरी</a><a href="#contact">संपर्क</a></nav>
+    <div class="nav-actions"><a class="btn btn-primary" href="#shop" id="navCartButton">🛒 कार्ट <span id="navCartCount">0</span></a><button class="theme-btn" id="themeToggle" aria-label="थीम बदलें">🌙</button><button class="menu-btn" id="menuToggle" aria-label="मेन्यू">☰</button></div>
   </div>
 </header>
 <main>
@@ -256,7 +284,7 @@ footer a{text-decoration:underline}
   <div class="stat reveal"><strong>7 दिन</strong><span>सप्ताह भर दुकान खुली*</span></div>
 </div></div>
 <section class="products" id="products">
-  <div class="container"><div class="section-head reveal"><div class="kicker">हमारे उत्पाद</div><h2>घर की ज़रूरतों का सामान</h2><p>रोज़मर्रा के इस्तेमाल के लिए अलग-अलग तरह के किराना और खाने-पीने के उत्पाद। उपलब्धता और ताज़ा दाम दुकान पर पूछें।</p></div>
+  <div class="container"><div class="section-head reveal"><div class="kicker">हमारे उत्पाद</div><h2>घर की ज़रूरतों का सामान</h2><p>रोज़मर्रा के इस्तेमाल की श्रेणियाँ। उत्पादों और कीमतों की सूची देखने तथा कार्ट में जोड़ने के लिए नीचे ऑनलाइन खरीदारी पर जाएँ।</p></div>
     <div class="grid">
       <article class="card reveal"><div class="card-icon">🌾</div><h3>अनाज और दालें</h3><p>रोज़ाना के भोजन के लिए विभिन्न प्रकार के अनाज, दालें और अन्य ज़रूरी किराना सामान।</p></article>
       <article class="card reveal"><div class="card-icon">🛢️</div><h3>खुला तेल</h3><p>खुला तेल और रोज़मर्रा में इस्तेमाल होने वाली रसोई की ज़रूरतें। उपलब्ध प्रकार दुकान पर पूछें।</p></article>
@@ -266,6 +294,30 @@ footer a{text-decoration:underline}
       <article class="card reveal"><div class="card-icon">🧺</div><h3>घर की दूसरी ज़रूरतें</h3><p>आपकी रोज़मर्रा की खरीदारी के लिए कई प्रकार के उपयोगी उत्पाद एक ही जगह।</p></article>
     </div>
   </div>
+</section>
+<section id="shop" class="products">
+ <div class="container">
+  <div class="section-head reveal"><div class="kicker" id="shopKicker">ऑनलाइन खरीदारी</div><h2 id="shopHeading">उत्पाद चुनें और घर बैठे ऑर्डर करें</h2><p id="shopIntro">उत्पादों की सूची देखें, मात्रा चुनें, कार्ट या विशलिस्ट में जोड़ें और वेबसाइट के अंदर चेकआउट करें।</p></div>
+  <div class="shop-notice" id="demoPriceNotice">⚠️ डेमो कैटलॉग: ये उदाहरण उत्पाद और कीमतें हैं, दुकान की पुष्टि की हुई कीमतें नहीं। वेबसाइट प्रकाशित करने से पहले इन्हें सही उत्पादों और दामों से बदलें।</div>
+  <div class="shop-toolbar"><input id="productSearch" type="search" placeholder="उत्पाद खोजें…" aria-label="उत्पाद खोजें"><select id="productCategory" aria-label="श्रेणी चुनें"><option value="all">सभी श्रेणियाँ</option><option value="grains">अनाज और दालें</option><option value="oil">तेल</option><option value="spices">मसाले</option><option value="snacks">पैक्ड सामान</option><option value="daily">रोज़मर्रा का सामान</option></select></div>
+  <div id="productCatalog" class="shop-catalog" aria-live="polite"></div>
+  <div class="shop-panel-grid">
+   <div class="shop-panel" id="cartPanel"><h3 id="cartHeading">🛒 आपका कार्ट <span id="cartCountLabel">(0)</span></h3><div id="cartItems" class="shop-empty">आपका कार्ट अभी खाली है।</div><div class="shop-total"><span id="subtotalLabel">कुल राशि</span><span id="cartSubtotal">₹0.00</span></div><button class="btn btn-primary" id="goCheckout" type="button" style="width:100%">चेकआउट करें</button></div>
+   <div class="shop-panel" id="wishlistPanel"><h3 id="wishlistHeading">♡ आपकी विशलिस्ट <span id="wishlistCountLabel">(0)</span></h3><div id="wishlistItems" class="shop-empty">अभी कोई पसंदीदा उत्पाद नहीं है।</div><p class="form-help" id="wishlistHint">दिल वाले बटन से उत्पाद सेव करें और बाद में कार्ट में जोड़ें।</p></div>
+  </div>
+  <div class="shop-panel" id="checkoutPanel" style="margin-top:20px;display:none"><h3 id="checkoutHeading">ऑर्डर पूरा करें</h3><p class="muted" id="checkoutSubheading">अपनी जानकारी भरें। अभी यह डेमो चेकआउट है; ऑर्डर इस डिवाइस पर ही सेव होगा, दुकान तक ऑनलाइन नहीं पहुँचेगा।</p>
+   <form id="checkoutForm" class="checkout-form">
+    <label><span id="customerNameLabel">पूरा नाम *</span><input id="orderCustomerName" required autocomplete="name" maxlength="100"></label>
+    <label><span id="customerPhoneLabel">मोबाइल नंबर *</span><input id="orderCustomerPhone" required type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+() -]{10,16}" maxlength="16"></label>
+    <label><span id="fulfilmentLabel">ऑर्डर लेने का तरीका *</span><select id="orderFulfilment" required><option value="delivery">घर पर डिलीवरी</option><option value="pickup">दुकान से पिकअप</option></select></label>
+    <label id="addressField"><span id="addressLabel">डिलीवरी का पता *</span><textarea id="orderAddress" rows="2" required maxlength="350" autocomplete="street-address"></textarea></label>
+    <label><span id="paymentLabel">भुगतान का तरीका *</span><select id="orderPayment" required><option value="cod">डिलीवरी पर भुगतान</option><option value="store">दुकान पर भुगतान</option></select></label>
+    <label><span id="notesLabel">ऑर्डर नोट (वैकल्पिक)</span><textarea id="orderNotes" rows="2" maxlength="300"></textarea></label>
+    <div class="shop-total"><span id="checkoutTotalLabel">ऑर्डर कुल</span><span id="checkoutTotal">₹0.00</span></div>
+    <button class="btn btn-primary" type="submit" id="placeOrderButton">ऑर्डर रखें</button><button class="btn btn-light" type="button" id="cancelCheckout">वापस जाएँ</button>
+   </form><div id="orderConfirmation" hidden></div>
+  </div>
+ </div>
 </section>
 <section id="about">
   <div class="container about-grid">
@@ -285,7 +337,7 @@ footer a{text-decoration:underline}
       <div class="gallery-item reveal"><div class="emoji">🌻</div><span>खाने वाले बीज</span></div>
       <div class="gallery-item reveal"><div class="emoji">🧂</div><span>रसोई की ज़रूरतें</span></div>
       <div class="gallery-item reveal"><div class="emoji">🏪</div><span>आपकी अपनी पुरानी दुकान</span></div>
-    </div><p class="gallery-note">असली दुकान की तस्वीरें जोड़ने के लिए HTML में इन गैलरी आइटमों को image tags से बदला जा सकता है।</p>
+    </div>
   </div>
 </section>
 <section class="contact" id="contact">
@@ -380,9 +432,9 @@ footer a{text-decoration:underline}
    ========================================================== */
 const STORE = {
   name: "नवीन भगवान दास प्रोविजन स्टोर",
-  phone: "",             // उदाहरण: "919876543210" — देश कोड सहित, + के बिना
-  address: "",           // दुकान का पूरा पता
-  hours: "सुबह [समय] से रात [समय] तक • सप्ताह के 7 दिन",
+  phone: "917007343105",             // उदाहरण: "919876543210" — देश कोड सहित, + के बिना
+  address: "Laxmi Market, Bazar, Sabji Mandi, Ghantaghar, Sitapur-261001, Uttar Pradesh",           // दुकान का पूरा पता
+  hours: "सुबह 9:00 से रात 9:00 तक • सप्ताह के 7 दिन",
   whatsapp: ""           // खाली छोड़ें तो phone नंबर इस्तेमाल होगा
 };
 const $ = id => document.getElementById(id);
@@ -453,6 +505,7 @@ const extraTranslations = {
 "असली दुकान की तस्वीरें जोड़ने के लिए HTML में इन गैलरी आइटमों को image tags से बदला जा सकता है।":"Replace these gallery illustrations with image tags to add real shop photos.",
 "हमसे संपर्क करें":"Contact us","अपना संदेश लिखें":"Write your message",
 "सुबह [समय] से रात [समय] तक • सप्ताह के 7 दिन":"Morning [time] to night [time] • 7 days a week",
+"सुबह 9:00 से रात 9:00 तक • सप्ताह के 7 दिन":"9:00 AM to 9:00 PM • 7 days a week",
 "Owner Settings / मालिक की सेटिंग":"Owner Settings",
 "Enter the owner password to open the settings helper.":"Enter the owner password to open settings.",
 "Password":"Password","Unlock":"Unlock","Close":"Close",
@@ -463,6 +516,25 @@ const extraTranslations = {
 };
 Object.assign(translations, extraTranslations);
 Object.assign(reverseTranslations, Object.fromEntries(Object.entries(extraTranslations).map(([hi,en])=>[en,hi])));
+const moreTranslations = {
+"श्रेणियाँ":"Categories",
+"ऑनलाइन खरीदें":"Shop Online",
+"🛒 कार्ट":"🛒 Cart",
+"रोज़मर्रा के इस्तेमाल की श्रेणियाँ। उत्पादों और कीमतों की सूची देखने तथा कार्ट में जोड़ने के लिए नीचे ऑनलाइन खरीदारी पर जाएँ।":"Everyday grocery categories. Go to Shop Online below to see the product list and prices and add items to your cart.",
+"थीम बदलें":"Change theme",
+"मेन्यू":"Menu",
+"किराने की टोकरी का चित्र":"Illustration of a grocery basket",
+"दुकान के नाम वाला किराना बैग":"Grocery bag with the shop name",
+"उत्पाद खोजें":"Search products",
+"श्रेणी चुनें":"Choose category",
+"WhatsApp पर संपर्क करें":"Contact on WhatsApp",
+"मालिक की सेटिंग":"Owner settings",
+"डिलीवरी पर भुगतान":"Cash on delivery",
+"लक्ष्मी मार्केट, बाज़ार, सब्ज़ी मंडी, घंटाघर, सीतापुर-261001, उत्तर प्रदेश":"Laxmi Market, Bazar, Sabji Mandi, Ghantaghar, Sitapur-261001, Uttar Pradesh"
+};
+Object.assign(translations, moreTranslations);
+Object.assign(reverseTranslations, Object.fromEntries(Object.entries(moreTranslations).map(([hi,en])=>[en,hi])));
+
 let currentLanguage = "hi";
 function translateString(input, lang){
   const map=lang==="en"?translations:reverseTranslations;
@@ -489,9 +561,9 @@ function applyLanguage(lang){
     ["placeholder","title","aria-label"].forEach(attr=>{
       const val=el.getAttribute(attr);
       if(val!==null){
-        const key="original"+attr;
-        if(!el.dataset[key]) el.dataset[key]=val;
-        el.setAttribute(attr,translateString(el.dataset[key],lang));
+        const key="data-original-"+attr;
+        if(!el.hasAttribute(key)) el.setAttribute(key,val);
+        el.setAttribute(attr,translateString(el.getAttribute(key),lang));
       }
     });
   });
@@ -545,6 +617,7 @@ function applyLanguage(lang){
   if(languageHint) languageHint.textContent=lang==="en"?"Select a language to enter the website":"वेबसाइट देखने के लिए भाषा चुनें";
   const loader=document.querySelector("#loader");
   if(loader) loader.setAttribute("aria-label",lang==="en"?"Opening the store website":"दुकान की वेबसाइट खुल रही है");
+  if(typeof renderShop === "function") renderShop();
 }
 document.querySelectorAll(".language-choice").forEach(button=>button.addEventListener("click",()=>{
   const chosenLanguage=button.dataset.lang==="en"?"en":"hi";
@@ -721,45 +794,128 @@ $("contactForm").addEventListener("submit",event=>{
  if(url)window.open(url,"_blank","noopener");
  else alert(currentLanguage==="en"?"Please add the store WhatsApp number in STORE.phone or STORE.whatsapp in the HTML first.":"कृपया पहले HTML में STORE.phone या STORE.whatsapp में दुकान का WhatsApp नंबर भरें।");
 });
-</script>
 
-<style>
-#pwaInstallButton{position:fixed;right:14px;bottom:14px;z-index:9999;border:0;border-radius:999px;padding:12px 16px;background:#14532d;color:#fff;font-weight:800;box-shadow:0 8px 24px #0003;cursor:pointer;display:none}
-#pwaInstallButton:focus-visible{outline:3px solid #facc15;outline-offset:3px}
-</style>
-<button id="pwaInstallButton" type="button" aria-label="Install Naveen Provision Store app">⬇ Install App</button>
-<script>
-(() => {
-  const button = document.getElementById('pwaInstallButton');
-  let installPrompt = null;
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-  if (isStandalone) return;
-  button.style.display = 'block';
-  window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    installPrompt = event;
-    button.textContent = '⬇ Install App';
-  });
-  button.addEventListener('click', async () => {
-    if (installPrompt) {
-      installPrompt.prompt();
-      await installPrompt.userChoice;
-      installPrompt = null;
-      button.style.display = 'none';
-      return;
-    }
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    if (isIOS) {
-      alert('To install: open this website in Safari, tap Share, then choose “Add to Home Screen”.');
-    } else {
-      alert('If your browser supports installation, open its menu and choose “Install app” or “Add to Home screen”. The website must be hosted on HTTPS.');
-    }
-  });
-  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-    window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+
+/* In-page shop demo: local-only cart, wishlist and checkout. Connect a secure backend before accepting live orders. */
+const SHOP_PRODUCTS = [
+ {id:'atta5',name:'गेहूँ का आटा',en:'Wheat Flour',unit:'5 kg pack',unitEn:'5 kg pack',price:250,emoji:'🌾',cat:'grains'},
+ {id:'rice1',name:'चावल',en:'Rice',unit:'1 kg',unitEn:'1 kg',price:70,emoji:'🍚',cat:'grains'},
+ {id:'dal1',name:'अरहर दाल',en:'Toor Dal',unit:'1 kg',unitEn:'1 kg',price:160,emoji:'🫘',cat:'grains'},
+ {id:'sugar1',name:'चीनी',en:'Sugar',unit:'1 kg',unitEn:'1 kg',price:45,emoji:'🧂',cat:'daily'},
+ {id:'salt1',name:'नमक',en:'Salt',unit:'1 kg pack',unitEn:'1 kg pack',price:25,emoji:'🧂',cat:'daily'},
+ {id:'oil1',name:'सरसों का तेल',en:'Mustard Oil',unit:'1 litre',unitEn:'1 litre',price:160,emoji:'🫗',cat:'oil'},
+ {id:'turmeric1',name:'हल्दी पाउडर',en:'Turmeric Powder',unit:'100 g pack',unitEn:'100 g pack',price:35,emoji:'🟡',cat:'spices'},
+ {id:'biscuits1',name:'बिस्कुट',en:'Biscuits',unit:'100 g pack',unitEn:'100 g pack',price:10,emoji:'🍪',cat:'snacks'},
+ {id:'tea1',name:'चाय पत्ती',en:'Tea Leaves',unit:'250 g pack',unitEn:'250 g pack',price:110,emoji:'🍵',cat:'daily'},
+ {id:'chana1',name:'चना दाल',en:'Chana Dal',unit:'1 kg',unitEn:'1 kg',price:90,emoji:'🟠',cat:'grains'},
+ {id:'chilli1',name:'लाल मिर्च पाउडर',en:'Red Chilli Powder',unit:'100 g pack',unitEn:'100 g pack',price:40,emoji:'🌶️',cat:'spices'},
+ {id:'noodles1',name:'इंस्टेंट नूडल्स',en:'Instant Noodles',unit:'1 pack',unitEn:'1 pack',price:15,emoji:'🍜',cat:'snacks'}
+];
+const SHOP_TEXT = {
+ hi:{kicker:'ऑनलाइन खरीदारी',heading:'उत्पाद चुनें और घर बैठे ऑर्डर करें',intro:'उत्पादों की सूची देखें, मात्रा चुनें, कार्ट या विशलिस्ट में जोड़ें और वेबसाइट के अंदर चेकआउट करें।',notice:'⚠️ डेमो कैटलॉग: ये उदाहरण उत्पाद और कीमतें हैं, दुकान की पुष्टि की हुई कीमतें नहीं। प्रकाशित करने से पहले सही उत्पादों और दामों से बदलें।',search:'उत्पाद खोजें…',all:'सभी श्रेणियाँ',cats:{grains:'अनाज और दालें',oil:'तेल',spices:'मसाले',snacks:'पैक्ड सामान',daily:'रोज़मर्रा का सामान'},add:'कार्ट में डालें',added:'कार्ट में जोड़ा गया',wish:'विशलिस्ट में जोड़ें',unwish:'विशलिस्ट से हटाएँ',cart:'🛒 आपका कार्ट',wishlist:'♡ आपकी विशलिस्ट',emptyCart:'आपका कार्ट अभी खाली है।',emptyWish:'अभी कोई पसंदीदा उत्पाद नहीं है।',hint:'दिल वाले बटन से उत्पाद सेव करें और बाद में कार्ट में जोड़ें।',subtotal:'कुल राशि',checkout:'चेकआउट करें',finish:'ऑर्डर पूरा करें',subheading:'अपनी जानकारी भरें। यह डेमो चेकआउट है; ऑर्डर केवल इसी डिवाइस पर सेव होगा, दुकान तक ऑनलाइन नहीं पहुँचेगा।',name:'पूरा नाम *',phone:'मोबाइल नंबर *',fulfilment:'ऑर्डर लेने का तरीका *',delivery:'घर पर डिलीवरी',pickup:'दुकान से पिकअप',address:'डिलीवरी का पता *',payment:'भुगतान का तरीका *',cod:'डिलीवरी पर भुगतान',store:'दुकान पर भुगतान',notes:'ऑर्डर नोट (वैकल्पिक)',total:'ऑर्डर कुल',place:'ऑर्डर रखें',cancel:'वापस जाएँ',remove:'हटाएँ',saved:'ऑर्डर इस डिवाइस पर डेमो के रूप में सेव हो गया। अभी दुकान को सूचना नहीं भेजी गई है।',needItems:'पहले कार्ट में उत्पाद जोड़ें।',searchNone:'कोई उत्पाद नहीं मिला।',nav:'🛒 कार्ट'},
+ en:{kicker:'SHOP ONLINE',heading:'Choose products and order from home',intro:'Browse products, choose quantities, add items to your cart or wishlist, and check out on this website.',notice:'⚠️ DEMO CATALOG: these are example products and prices, not verified shop prices. Replace them with the real inventory and prices before publishing.',search:'Search products…',all:'All categories',cats:{grains:'Grains & Pulses',oil:'Oil',spices:'Spices',snacks:'Packaged Goods',daily:'Daily Essentials'},add:'Add to Cart',added:'Added to cart',wish:'Add to wishlist',unwish:'Remove from wishlist',cart:'🛒 Your Cart',wishlist:'♡ Your Wishlist',emptyCart:'Your cart is empty.',emptyWish:'No wishlist items yet.',hint:'Save products with the heart button and add them to your cart later.',subtotal:'Subtotal',checkout:'Proceed to Checkout',finish:'Complete Your Order',subheading:'Enter your details. This is a demo checkout; the order is saved only on this device and is not sent to the shop.',name:'Full name *',phone:'Mobile number *',fulfilment:'Fulfilment method *',delivery:'Home delivery',pickup:'Store pickup',address:'Delivery address *',payment:'Payment method *',cod:'Cash on delivery',store:'Pay at store',notes:'Order note (optional)',total:'Order total',place:'Place order',cancel:'Go back',remove:'Remove',saved:'Demo order saved on this device. The shop has not been notified.',needItems:'Add products to your cart first.',searchNone:'No products found.',nav:'🛒 Cart'}
+};
+let shopCart={},shopWishlist=new Set();
+try{shopCart=JSON.parse(localStorage.getItem('nbd-shop-cart')||'{}');shopWishlist=new Set(JSON.parse(localStorage.getItem('nbd-shop-wishlist')||'[]'));}catch(e){shopCart={};shopWishlist=new Set();}
+const money=n=>new Intl.NumberFormat(currentLanguage==='en'?'en-IN':'hi-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(n);
+function saveShopState(){try{localStorage.setItem('nbd-shop-cart',JSON.stringify(shopCart));localStorage.setItem('nbd-shop-wishlist',JSON.stringify([...shopWishlist]));}catch(e){}}
+function shopText(){return SHOP_TEXT[currentLanguage]||SHOP_TEXT.hi;}
+function hiUnit(s){return String(s).replace(/\blitres?\b|\bliters?\b/gi,'लीटर').replace(/\bkg\b/gi,'किग्रा').replace(/\bml\b/gi,'मिली').replace(/\bg\b/gi,'ग्राम').replace(/\bpack\b/gi,'पैक');}
+function shopProductName(p){return currentLanguage==='en'?p.en:p.name;}
+function cartQuantity(){return Object.values(shopCart).reduce((a,b)=>a+Number(b||0),0)}
+function cartTotal(){return SHOP_PRODUCTS.reduce((sum,p)=>sum+p.price*(Number(shopCart[p.id])||0),0)}
+function renderShop(){
+ const t=shopText();
+ const set=(id,value)=>{const el=$(id);if(el)el.textContent=value};
+ set('shopKicker',t.kicker);set('shopHeading',t.heading);set('shopIntro',t.intro);set('demoPriceNotice',t.notice);if($('cartHeading'))$('cartHeading').innerHTML=t.cart+' <span id="cartCountLabel">(0)</span>';if($('wishlistHeading'))$('wishlistHeading').innerHTML=t.wishlist+' <span id="wishlistCountLabel">(0)</span>';set('subtotalLabel',t.subtotal);set('goCheckout',t.checkout);set('checkoutHeading',t.finish);set('checkoutSubheading',t.subheading);set('customerNameLabel',t.name);set('customerPhoneLabel',t.phone);set('fulfilmentLabel',t.fulfilment);set('addressLabel',t.address);set('paymentLabel',t.payment);set('notesLabel',t.notes);set('checkoutTotalLabel',t.total);set('placeOrderButton',t.place);set('cancelCheckout',t.cancel);set('wishlistHint',t.hint);
+ const search=$('productSearch'),category=$('productCategory');if(search)search.placeholder=t.search;
+ if(category){const old=category.value;category.innerHTML='';const all=document.createElement('option');all.value='all';all.textContent=t.all;category.appendChild(all);Object.entries(t.cats).forEach(([v,label])=>{const o=document.createElement('option');o.value=v;o.textContent=label;category.appendChild(o)});category.value=old||'all';}
+ const term=(search?.value||'').toLowerCase().trim(),cat=category?.value||'all';
+ $('productCatalog').innerHTML='';
+ const products=SHOP_PRODUCTS.filter(p=>(cat==='all'||p.cat===cat)&&(!term||(p.name+' '+p.en).toLowerCase().includes(term)));
+ products.forEach(p=>{const card=document.createElement('article');card.className='shop-product';const emoji=document.createElement('div');emoji.className='product-emoji';emoji.textContent=p.emoji;const title=document.createElement('h3');title.textContent=shopProductName(p);const unit=document.createElement('div');unit.className='unit';unit.textContent=currentLanguage==='en'?p.unitEn:hiUnit(p.unit);const price=document.createElement('div');price.className='shop-price';price.textContent=money(p.price);const actions=document.createElement('div');actions.className='shop-product-actions';const add=document.createElement('button');add.className='add-cart';add.textContent=t.add;add.type='button';add.addEventListener('click',()=>{shopCart[p.id]=(Number(shopCart[p.id])||0)+1;saveShopState();renderShop();});const wish=document.createElement('button');wish.className='wish'+(shopWishlist.has(p.id)?' active':'');wish.type='button';wish.textContent=shopWishlist.has(p.id)?'♥':'♡';wish.title=shopWishlist.has(p.id)?t.unwish:t.wish;wish.setAttribute('aria-label',wish.title);wish.addEventListener('click',()=>{shopWishlist.has(p.id)?shopWishlist.delete(p.id):shopWishlist.add(p.id);saveShopState();renderShop();});actions.append(add,wish);card.append(emoji,title,unit,price,actions);$('productCatalog').appendChild(card);});
+ if(!products.length){const empty=document.createElement('p');empty.className='shop-empty';empty.textContent=t.searchNone;$('productCatalog').appendChild(empty);}
+ set('cartCountLabel','('+cartQuantity()+')');set('navCartCount',String(cartQuantity()));set('wishlistCountLabel','('+shopWishlist.size+')');set('cartSubtotal',money(cartTotal()));set('checkoutTotal',money(cartTotal()));
+ const cart=$('cartItems');cart.innerHTML='';const items=SHOP_PRODUCTS.filter(p=>Number(shopCart[p.id])>0);
+ if(!items.length){cart.className='shop-empty';cart.textContent=t.emptyCart;}else{cart.className='';items.forEach(p=>{const row=document.createElement('div');row.className='shop-line';const info=document.createElement('div');const name=document.createElement('strong');name.textContent=shopProductName(p);const small=document.createElement('small');small.textContent=money(p.price)+' × '+shopCart[p.id]+' = '+money(p.price*shopCart[p.id]);info.append(name,small);const controls=document.createElement('div');controls.className='qty-controls';const minus=document.createElement('button');minus.textContent='−';minus.setAttribute('aria-label','Decrease quantity');minus.onclick=()=>{shopCart[p.id]=Number(shopCart[p.id])-1;if(shopCart[p.id]<=0)delete shopCart[p.id];saveShopState();renderShop();};const qty=document.createElement('span');qty.textContent=shopCart[p.id];const plus=document.createElement('button');plus.textContent='+';plus.setAttribute('aria-label','Increase quantity');plus.onclick=()=>{shopCart[p.id]=Number(shopCart[p.id])+1;saveShopState();renderShop();};const remove=document.createElement('button');remove.textContent='×';remove.title=t.remove;remove.onclick=()=>{delete shopCart[p.id];saveShopState();renderShop();};controls.append(minus,qty,plus,remove);row.append(info,controls);cart.appendChild(row);});}
+ const wishes=$('wishlistItems');wishes.innerHTML='';const wishItems=SHOP_PRODUCTS.filter(p=>shopWishlist.has(p.id));
+ if(!wishItems.length){wishes.className='shop-empty';wishes.textContent=t.emptyWish;}else{wishes.className='';wishItems.forEach(p=>{const row=document.createElement('div');row.className='shop-line';const info=document.createElement('div');const name=document.createElement('strong');name.textContent=shopProductName(p);const small=document.createElement('small');small.textContent=money(p.price)+' · '+(currentLanguage==='en'?p.unitEn:hiUnit(p.unit));info.append(name,small);const actions=document.createElement('div');actions.className='qty-controls';const add=document.createElement('button');add.textContent='+';add.title=t.add;add.onclick=()=>{shopCart[p.id]=(Number(shopCart[p.id])||0)+1;saveShopState();renderShop();};const rem=document.createElement('button');rem.textContent='×';rem.title=t.remove;rem.onclick=()=>{shopWishlist.delete(p.id);saveShopState();renderShop();};actions.append(add,rem);row.append(info,actions);wishes.appendChild(row);});}
+ const fulfil=$('orderFulfilment');if(fulfil){fulfil.options[0].text=t.delivery;fulfil.options[1].text=t.pickup;}const pay=$('orderPayment');if(pay){pay.options[0].text=t.cod;pay.options[1].text=t.store;}
+}
+$('productSearch').addEventListener('input',renderShop);$('productCategory').addEventListener('change',renderShop);
+$('goCheckout').addEventListener('click',()=>{if(!cartQuantity()){alert(shopText().needItems);return}$('checkoutPanel').style.display='block';$('orderConfirmation').hidden=true;$('checkoutForm').hidden=false;$('checkoutPanel').scrollIntoView({behavior:'smooth',block:'start'});});
+$('cancelCheckout').addEventListener('click',()=>{$('checkoutPanel').style.display='none';$('cartPanel').scrollIntoView({behavior:'smooth',block:'center'});});
+$('orderFulfilment').addEventListener('change',()=>{const pickup=$('orderFulfilment').value==='pickup';$('addressField').style.display=pickup?'none':'grid';$('orderAddress').required=!pickup;});
+$('checkoutForm').addEventListener('submit',e=>{e.preventDefault();if(!cartQuantity()){alert(shopText().needItems);return;}const pickup=$('orderFulfilment').value==='pickup';const order={id:'DEMO-'+Date.now(),createdAt:new Date().toISOString(),customer:{name:$('orderCustomerName').value.trim(),phone:$('orderCustomerPhone').value.trim(),address:pickup?'Store pickup':$('orderAddress').value.trim()},fulfilment:$('orderFulfilment').value,payment:$('orderPayment').value,notes:$('orderNotes').value.trim(),items:SHOP_PRODUCTS.filter(p=>Number(shopCart[p.id])>0).map(p=>({id:p.id,name:p.name,englishName:p.en,price:p.price,quantity:Number(shopCart[p.id])})),total:cartTotal(),demo:true};let orders=[];try{orders=JSON.parse(localStorage.getItem('nbd-demo-orders')||'[]');orders.push(order);localStorage.setItem('nbd-demo-orders',JSON.stringify(orders));}catch(err){};const box=$('orderConfirmation');box.hidden=false;box.className='order-success';box.textContent=shopText().saved+' Order ID: '+order.id;$('checkoutForm').hidden=true;shopCart={};saveShopState();renderShop();});
+renderShop();
+
+/* ==========================================================
+   LIVE PRODUCT LIST FROM GOOGLE SHEET
+   Paste your sheet's "Publish to web" CSV link between the quotes.
+   While it is empty, the built-in sample products above are shown.
+   Sheet columns: name_hindi, name_english, unit, price, category, emoji, available
+   ========================================================== */
+const PRODUCTS_SHEET_URL = "";
+const PRODUCTS_CACHE_KEY = "nbd-products-csv-cache";
+function parseCSV(text){
+  const rows=[];let row=[],cur="",q=false;
+  text=text.replace(/^\uFEFF/,"");
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){ if(c==='"'){ if(text[i+1]==='"'){cur+='"';i++} else q=false } else cur+=c }
+    else if(c==='"') q=true;
+    else if(c===","){row.push(cur);cur=""}
+    else if(c==="\n"||c==="\r"){ if(c==="\r"&&text[i+1]==="\n")i++; row.push(cur);cur=""; if(row.some(x=>x.trim()!==""))rows.push(row); row=[] }
+    else cur+=c;
   }
+  row.push(cur); if(row.some(x=>x.trim()!==""))rows.push(row);
+  return rows;
+}
+function applySheetProducts(csv){
+  const rows=parseCSV(csv); if(rows.length<2) return false;
+  const head=rows[0].map(h=>h.trim().toLowerCase());
+  const col=n=>head.indexOf(n);
+  const iHi=col("name_hindi"),iEn=col("name_english"),iUnit=col("unit"),iPrice=col("price"),iCat=col("category"),iEmoji=col("emoji"),iAvail=col("available");
+  if(iPrice<0||(iHi<0&&iEn<0)) return false;
+  const known={};
+  Object.entries(SHOP_TEXT.en.cats).forEach(([k,v])=>{known[k]=k;known[v.toLowerCase()]=k});
+  Object.entries(SHOP_TEXT.hi.cats).forEach(([k,v])=>{known[v.toLowerCase()]=k});
+  const oldHi=Object.assign({},SHOP_TEXT.hi.cats),oldEn=Object.assign({},SHOP_TEXT.en.cats);
+  const list=[],catsHi={},catsEn={},seen={};
+  rows.slice(1).forEach(r=>{
+    const get=i=>i>=0?(r[i]||"").trim():"";
+    const price=parseFloat(get(iPrice).replace(/[^0-9.]/g,""));
+    const hi=get(iHi),en=get(iEn)||hi, nameHi=hi||en;
+    if(!nameHi||!(price>=0)||isNaN(price)) return;
+    if(/^(no|n|false|0|नहीं)$/i.test(get(iAvail))) return;
+    const catText=get(iCat)||"Other";
+    const key=known[catText.toLowerCase()]||("c_"+catText.toLowerCase().replace(/[^a-z0-9\u0900-\u097F]+/g,"_"));
+    catsHi[key]=oldHi[key]||catText; catsEn[key]=oldEn[key]||catText;
+    let id="p_"+(en||hi).toLowerCase().replace(/[^a-z0-9\u0900-\u097F]+/g,"_")+"_"+get(iUnit).toLowerCase().replace(/[^a-z0-9]+/g,"");
+    if(seen[id]){seen[id]++;id+="_"+seen[id]} else seen[id]=1;
+    list.push({id,name:nameHi,en,unit:get(iUnit),unitEn:get(iUnit),price,emoji:get(iEmoji)||"🛒",cat:key});
+  });
+  if(!list.length) return false;
+  SHOP_PRODUCTS.length=0; list.forEach(p=>SHOP_PRODUCTS.push(p));
+  SHOP_TEXT.hi.cats=catsHi; SHOP_TEXT.en.cats=catsEn;
+  const notice=$("demoPriceNotice"); if(notice) notice.style.display="none";
+  const cat=$("productCategory"); if(cat) cat.value="all";
+  renderShop();
+  return true;
+}
+(function loadSheetProducts(){
+  if(!PRODUCTS_SHEET_URL) return;
+  try{const cached=localStorage.getItem(PRODUCTS_CACHE_KEY); if(cached) applySheetProducts(cached);}catch(e){}
+  fetch(PRODUCTS_SHEET_URL+(PRODUCTS_SHEET_URL.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"})
+    .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()})
+    .then(csv=>{ if(applySheetProducts(csv)){ try{localStorage.setItem(PRODUCTS_CACHE_KEY,csv)}catch(e){} } })
+    .catch(err=>console.warn("Product sheet not loaded; showing saved/sample list.",err));
 })();
-</script>
 
+if("serviceWorker" in navigator && location.protocol==="https:"){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+</script>
+<script type="module" src="backend.js"></script>
 </body>
 </html>
